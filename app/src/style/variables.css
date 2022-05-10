@@ -1,7 +1,12 @@
 :root {
-	--background: white;
+	--background: #F5F3F3;
 	--foreground: black;
+	--nav-color: #3A3A3A;
 	
-	--font-family: "Arial";
-	--font-size: 20px;
+	--font-family: 'Roboto';
+	--header-style: 36px;
+	--body-style: 24px;
+
+	--light-green: #00FFE0;
+	--darker-green: #02E5CA; 
 }
