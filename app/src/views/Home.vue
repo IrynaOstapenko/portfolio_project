@@ -42,6 +42,11 @@ import WeatherForecast from '../components/WeatherForecast.vue';
 	.main-page__image img {
 		height: 100%;
 		width: auto;
+		filter: grayscale(100%);
+	}
+
+	.main-page__image img:hover {
+		filter: none;
 	}
 
 	.main-page__general-info {

@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@sanity/client": "^3.3.0",
+    "url": "^0.11.0",
     "vue": "^3.2.21",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"

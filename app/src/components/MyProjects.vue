@@ -25,14 +25,14 @@
 
     /* Sanity client not working*/
 
-    // import sanityClient from '@sanity/client';
+    import sanityClient from '@sanity/client';
 
-	// const sanity = sanityClient({
-	// 	projectId: 'hepvg5nh',
-	// 	dataset: 'production',
-	// 	apiVersion: '2022-05-10', 
-	// 	useCdn: false 
-	// });
+	const sanity = sanityClient({
+		projectId: 'hepvg5nh',
+		dataset: 'production',
+		apiVersion: '2022-05-10', 
+		useCdn: false 
+	});
     
     /*..............*/
 
@@ -51,22 +51,22 @@
 
         async created() {
             /*Ordinary sanity link is working properly */
-            const sanity_query_url = 'https://hepvg5nh.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%24type%5D%20%7B%0A%20%20_id%2C%0A%20%20title%2C%0A%20%20slug%2C%0A%20%20description%2C%0A%20%20gitHubLink%2C%0A%20%20netlifyLink%2C%0A%20%20image%20%7B%0A%20%20%20asset-%3E%20%7B%0A%20%20%20%20url%0A%20%20%20%7D%0A%20%20%7D%0A%7D&%24type=%22project%22'
+            // const sanity_query_url = 'https://hepvg5nh.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%24type%5D%20%7B%0A%20%20_id%2C%0A%20%20title%2C%0A%20%20slug%2C%0A%20%20description%2C%0A%20%20gitHubLink%2C%0A%20%20netlifyLink%2C%0A%20%20image%20%7B%0A%20%20%20asset-%3E%20%7B%0A%20%20%20%20url%0A%20%20%20%7D%0A%20%20%7D%0A%7D&%24type=%22project%22'
 
-		    const sanity_response = await fetch(sanity_query_url);
-		    const { result } = await sanity_response.json();
+		    // const sanity_response = await fetch(sanity_query_url);
+		    // const { result } = await sanity_response.json();
 
-		    this.projects = result;
-            console.log(this.projects);
+		    // this.projects = result;
+            // console.log(this.projects);
 
             /*Second part of the sanity client that's not working*/
 
-            // const query = `*[_type == $type]`
-			// const params = { type: 'project' };
+            const query = `*[_type == $type]`
+			const params = { type: 'project' };
 
-			// this.projects = await sanity.fetch(query, params);
-			// this.loading = false;
-            // console.log(this.projects);
+			this.projects = await sanity.fetch(query, params);
+			this.loading = false;
+            console.log(this.projects);
 
             /*.......*/
         }
