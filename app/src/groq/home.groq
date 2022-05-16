@@ -1,0 +1,15 @@
+*[_type == $type] 
+    {
+        intro,
+        aboutMe,
+        cv {
+            asset -> {
+                url
+            }
+        },
+        mainImage {
+                asset -> {
+                    url
+                }
+        }
+    } 

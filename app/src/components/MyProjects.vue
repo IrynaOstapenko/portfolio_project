@@ -23,28 +23,30 @@
     import Navigation from '../components/Navigation.vue';
     import WeatherForecast from '../components/WeatherForecast.vue';
 
-    /* Sanity client not working*/
+    import query from '../groq/myProjects.groq?raw';
+	import viewMixin from '../mixins/viewMixin.js';
 
-    import sanityClient from '@sanity/client';
+   //import sanity from '../sanity.js'
 
-	const sanity = sanityClient({
-		projectId: 'hepvg5nh',
-		dataset: 'production',
-		apiVersion: '2022-05-10', 
-		useCdn: false 
-	});
-    
-    /*..............*/
+    // import sanityClient from '@sanity/client';
+
+	// const sanity = sanityClient({
+	// 	projectId: 'hepvg5nh',
+	// 	dataset: 'production',
+	// 	apiVersion: '2022-05-10', 
+	// 	useCdn: false 
+	// });
 
     export default {
+        mixins: [viewMixin],
         components: {
             Navigation,
             WeatherForecast
         },
         data() {
             return {
-                loading: true,
-                result: null,
+                // loading: true,
+                // result: null,
                 projects: []
             }           
         },
@@ -59,16 +61,33 @@
 		    // this.projects = result;
             // console.log(this.projects);
 
-            /*Second part of the sanity client that's not working*/
+            // const query = `*[_type == $type]`
 
-            const query = `*[_type == $type]`
-			const params = { type: 'project' };
+            // const query = `*[_type == $type] {
+            //     _id,
+            //     title,
+            //     slug,
+            //     description,
+            //     gitHubLink,
+            //     netlifyLink,
+            //     image {
+            //         asset -> {
+            //             url
+            //         }
+            //     }
+            // }` 
+			// const params = { type: 'project' };
 
-			this.projects = await sanity.fetch(query, params);
-			this.loading = false;
+			// this.projects = await sanity.fetch(query, params);
+			// this.loading = false;
+            // console.log(this.projects);
+
+            await this.sanityFetch(query, {
+                type: 'project'
+            })
+            this.projects = this.result;
             console.log(this.projects);
 
-            /*.......*/
         }
     }
 

@@ -1,0 +1,13 @@
+*[_type == $type] {
+    _id,
+    title,
+    slug,
+    description,
+    gitHubLink,
+    netlifyLink,
+    image {
+        asset -> {
+            url
+        }
+    }
+    }
