@@ -2,6 +2,7 @@
     {
         intro,
         aboutMe,
+        gitHubLinkMain,
         cv {
             asset -> {
                 url

@@ -26,17 +26,6 @@
     import query from '../groq/myProjects.groq?raw';
 	import viewMixin from '../mixins/viewMixin.js';
 
-   //import sanity from '../sanity.js'
-
-    // import sanityClient from '@sanity/client';
-
-	// const sanity = sanityClient({
-	// 	projectId: 'hepvg5nh',
-	// 	dataset: 'production',
-	// 	apiVersion: '2022-05-10', 
-	// 	useCdn: false 
-	// });
-
     export default {
         mixins: [viewMixin],
         components: {
@@ -45,43 +34,11 @@
         },
         data() {
             return {
-                // loading: true,
-                // result: null,
                 projects: []
             }           
         },
 
         async created() {
-            /*Ordinary sanity link is working properly */
-            // const sanity_query_url = 'https://hepvg5nh.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%24type%5D%20%7B%0A%20%20_id%2C%0A%20%20title%2C%0A%20%20slug%2C%0A%20%20description%2C%0A%20%20gitHubLink%2C%0A%20%20netlifyLink%2C%0A%20%20image%20%7B%0A%20%20%20asset-%3E%20%7B%0A%20%20%20%20url%0A%20%20%20%7D%0A%20%20%7D%0A%7D&%24type=%22project%22'
-
-		    // const sanity_response = await fetch(sanity_query_url);
-		    // const { result } = await sanity_response.json();
-
-		    // this.projects = result;
-            // console.log(this.projects);
-
-            // const query = `*[_type == $type]`
-
-            // const query = `*[_type == $type] {
-            //     _id,
-            //     title,
-            //     slug,
-            //     description,
-            //     gitHubLink,
-            //     netlifyLink,
-            //     image {
-            //         asset -> {
-            //             url
-            //         }
-            //     }
-            // }` 
-			// const params = { type: 'project' };
-
-			// this.projects = await sanity.fetch(query, params);
-			// this.loading = false;
-            // console.log(this.projects);
-
             await this.sanityFetch(query, {
                 type: 'project'
             })

@@ -22,6 +22,11 @@ export default {
 			title: 'CV',
 			name: 'cv',
 			type: 'file'
+		},
+		{
+			title: 'GitHub Link Main',
+			name: 'gitHubLinkMain',
+			type: 'string'
 		}
 	]
 }

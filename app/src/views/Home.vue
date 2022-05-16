@@ -6,28 +6,19 @@
 		<div class="main-page__general-info">
 			<div class="general-info__about-me">{{ intro }}</div>
 			<div class="general-info__cv-git">
-				<a :href="cvLink"><div class="cv-git__cv-button">CV</div></a>
-				<div class="cv-git__git-icon"><img src="/images/github-icon.png" alt=""></div>
+				<a :href="cvLink"><button class="cv-git__cv-button">CV</button></a>
+				<div class="cv-git__git-icon"><a :href="gitHubLinkMain"><img src="/images/github-icon.png" alt=""></a></div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue';
-import WeatherForecast from '../components/WeatherForecast.vue';
+	import Navigation from '../components/Navigation.vue';
+	import WeatherForecast from '../components/WeatherForecast.vue';
 
-import query from '../groq/home.groq?raw';
-import viewMixin from '../mixins/viewMixin.js';
-
-// import sanityClient from '@sanity/client';
-
-// 	const sanity = sanityClient({
-// 		projectId: 'hepvg5nh',
-// 		dataset: 'production',
-// 		apiVersion: '2022-05-10', 
-// 		useCdn: false 
-// 	});
+	import query from '../groq/home.groq?raw';
+	import viewMixin from '../mixins/viewMixin.js';
 
     export default {
 		mixins: [viewMixin],
@@ -38,46 +29,22 @@ import viewMixin from '../mixins/viewMixin.js';
 
 		data() {
             return {
-                // loading: true,
-                // result: null,
-				about: [],
 				intro: '',
 				mainImage: '',
-				cvLink: ''
+				cvLink: '',
+				gitHubLinkMain: ''
             }           
         },
 
 		async created() {
-			// const query = `*[_type == $type] 
-			// {
-            //     intro,
-            //     aboutMe,
-            //     cv {
-			// 		asset -> {
-			// 			url
-			// 		}
-			// 	},
-            //     mainImage {
-            //          asset -> {
-            //              url
-            //          }
-            //     }
-            // }` 
-			// const params = { type: 'about' };
-
-			// this.about = await sanity.fetch(query, params);
-			// this.loading = false;
-            // console.log(this.about);
-
 			await this.sanityFetch(query, {
                 type: 'about'
             });
 
-			this.about = this.result;
-
-			this.intro = this.about[0].intro;
-			this.mainImage = this.about[0].mainImage.asset.url;
-			this.cvLink = this.about[0].cv.asset.url;
+			this.intro = this.result[0].intro;
+			this.mainImage = this.result[0].mainImage.asset.url;
+			this.cvLink = this.result[0].cv.asset.url;
+			this.gitHubLinkMain = this.result[0].gitHubLinkMain;
 		}
     }
 </script>
@@ -100,31 +67,16 @@ import viewMixin from '../mixins/viewMixin.js';
 		height: 100%;
 		width: auto;
 		filter: grayscale(100%);
+		transform: scale(1);
+		transition: transform 0.3s ease-in-out;
+		border-radius: 10px;
 	}
 
 	.main-page__image img:hover {
 		filter: none;
 		transform: scale(1.1);
-		transition: transform 0.5s ease-in-out;
+		transition: transform 0.3s ease-in-out;
 	}
-
-	/*.main-page__image img:hover{
-		animation-name: zoomIn;
-		animation-duration: 0.3s;
-		animation-timing-function: ease-in-out;
-		animation-iteration-count: 1;
-	}
-
-	@keyframes zoomIn {
-		from{
-			transform: scale(1);
-			filter: grayscale(100%);
-		}
-		to{
-			transform: scale(1.1);
-			filter: none;
-		}
-	}*/
 
 	.main-page__general-info {
 		display: flex;
@@ -138,6 +90,10 @@ import viewMixin from '../mixins/viewMixin.js';
 		justify-content: flex-start;
 	}
 
+	a .cv-git__cv-button {
+		text-decoration: none;
+	}
+
 	.cv-git__cv-button {
 		height: 50px;
 		width: 170px;
@@ -146,6 +102,25 @@ import viewMixin from '../mixins/viewMixin.js';
 		text-align: center; 
 		padding-top: 0.3em;
 		margin-right: 5em;
+		color: var(--nav-color);
+		transform: scale(1);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.cv-git__cv-button:hover {
+		transform: scale(1.1);
+		transition: transform 0.3s ease-in-out;
+		background-color: var(--darker-green);
+	}
+
+	.cv-git__git-icon {
+		transform: scale(1);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.cv-git__git-icon:hover {
+		transform: scale(1.2);
+		transition: transform 0.3s ease-in-out;
 	}
 
 </style>

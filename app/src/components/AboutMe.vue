@@ -29,7 +29,7 @@
                 type: 'about'
             });
 
-            this.generalInfro = this.result[0].aboutMe;
+            this.generalInfo = this.result[0].aboutMe;
         }
     }
 </script>
