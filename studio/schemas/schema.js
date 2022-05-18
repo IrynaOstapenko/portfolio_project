@@ -4,12 +4,14 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import project from './documents/project.js'
 import collaborator from './documents/collaborator.js'
 import about from './documents/about.js'
+import message from './documents/message.js'
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     project,
     collaborator,
-    about
+    about,
+    message
   ]),
 })

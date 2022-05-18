@@ -1,7 +1,7 @@
 <template>
     <Navigation />
     <WeatherForecast />
-    <div>{{ generalInfo }}</div>
+    <section>{{ generalInfo }}</section>
 </template>
 
 <script>
@@ -33,3 +33,13 @@
         }
     }
 </script>
+
+<style>
+    section {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        width: 60%;
+    }
+
+</style>

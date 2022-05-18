@@ -27,6 +27,16 @@ export default {
 			title: 'GitHub Link Main',
 			name: 'gitHubLinkMain',
 			type: 'string'
+		},
+		{
+			title: 'Telephone Number',
+			name: 'telephoneNumber',
+			type: 'string'
+		},
+		{
+			title: 'Email',
+			name: 'email',
+			type: 'string'
 		}
 	]
 }

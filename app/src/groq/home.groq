@@ -2,6 +2,8 @@
     {
         intro,
         aboutMe,
+        telephoneNumber,
+        email,
         gitHubLinkMain,
         cv {
             asset -> {
