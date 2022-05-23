@@ -31,6 +31,7 @@
     import Navigation from '../components/Navigation.vue';
     import WeatherForecast from '../components/WeatherForecast.vue';
 
+    import sanity from '../sanity.js';
     import query from '../groq/home.groq?raw';
     import viewMixin from '../mixins/viewMixin.js';
 
@@ -74,49 +75,48 @@
 
 <style>
     .contacts-container {
-        position: absolute;
-        top: 20%;
-        left: 35%;
-        width: 50%;
+        position: relative;
+        width: 90%;
+        margin: 80px auto auto auto;
     }
 
     .contacts-container__contacts {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
-    .contacts-container__contacts div {
+    .contacts-container__contacts > div {
         width: 35%;
-        height: 10%;
+        height: 50px;
         background-color: white;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: 3px;
         border-radius: 10px;
     }
 
-    .contacts-container__contacts div:hover {
+    .contacts-container__contacts > div:hover {
         box-shadow: 5px 5px 5px #3A3A3A;
     }
 
     .contacts__phone-icon {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
 
     .contacts__email-icon {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
 
     .contacts__contact {
         text-align: center;
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
 
     h3 {
@@ -161,7 +161,7 @@
         background-color: var(--light-green);
         margin: auto;
         cursor: pointer;
-        font-size: 1em;
+        font-size: var(--mobile-body-style);
         transform: scale(1);
 		transition: transform 0.3s ease;
     }
@@ -170,6 +170,43 @@
         background-color: var(--darker-green);
         transform: scale(1.1);
 		transition: transform 0.3s ease;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .contacts-container {
+            position: absolute;
+            top: 15%;
+            left: 35%;
+            width: 50%;
+        }
+
+        .contacts-container__contacts > div {
+            width: 45%;
+            height: 70px;
+             gap: 5px;
+        }
+
+        .contacts-container__contacts {
+            justify-content: space-around;
+        }
+
+        .contacts__phone-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contacts__email-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .contacts__contact {
+            font-size: 0.8em;
+        }
+
+        input[type=submit] {
+            font-size: var(--body-style);
+        }        
     }
 
 </style>

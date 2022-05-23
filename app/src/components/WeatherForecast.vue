@@ -77,24 +77,30 @@
 
 <style>
     .weather-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 10%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: center;
-        margin: 1em;
-    }
+        display: none;
+    }    
 
-    .error-message {
-        font-size: 0.5em;
-    }
+    @media only screen and (min-width: 768px) {
+        .weather-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 1em;
+        }
 
-    .weather-container__image {
-        height: 50px;
-        width: 50px;
+        .error-message {
+            font-size: 0.5em;
+        }
+
+        .weather-container__image {
+            height: 50px;
+            width: 50px;
+        }
     }
 
 </style>

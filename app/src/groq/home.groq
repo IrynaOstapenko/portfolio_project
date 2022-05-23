@@ -14,5 +14,9 @@
                 asset -> {
                     url
                 }
+        },
+        skills[] {
+            asset -> {url},
+            caption
         }
     } 

@@ -37,6 +37,23 @@ export default {
 			title: 'Email',
 			name: 'email',
 			type: 'string'
+		},
+		{
+			title: 'Skills',
+			name: 'skills',
+			type: 'array',
+			of: [
+				{
+					type: 'image',
+					fields: [
+						{
+							title: 'Caption',
+							name: 'caption',
+							type: 'string'
+						}
+					]
+				}
+			]
 		}
 	]
 }

@@ -52,20 +52,16 @@
 <style>
 	.main-page-container {
 		width: 60%;
-		height: 40%;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 24%;
-		margin-left: 10%;
+		height: auto;
+		margin: 100px auto auto auto;
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		gap: 2em;
 	}
 
 	.main-page__image img {
-		height: 100%;
-		width: auto;
+		height: auto;
+		width: 100%;
 		filter: grayscale(100%);
 		transform: scale(1);
 		transition: transform 0.3s ease-in-out;
@@ -82,12 +78,14 @@
 		display: flex;
 		flex-flow: column nowrap;
 		justify-content: space-between;
+		gap: 50px;
+		font-size: var(--mobile-body-style);
 	}
 
 	.general-info__cv-git {
 		display: flex;
 		flex-flow: row nowrap;
-		justify-content: flex-start;
+		justify-content: space-between;
 	}
 
 	a .cv-git__cv-button {
@@ -95,13 +93,13 @@
 	}
 
 	.cv-git__cv-button {
-		height: 50px;
-		width: 170px;
+		height: 30px;
+		width: 100px;
 		background-color: var(--light-green);
 		border-radius: 20px;
 		text-align: center; 
-		padding-top: 0.3em;
-		margin-right: 5em;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
 		color: var(--nav-color);
 		transform: scale(1);
 		transition: transform 0.3s ease-in-out;
@@ -114,13 +112,67 @@
 	}
 
 	.cv-git__git-icon {
+		width: 30px;
+		height: 30px;
 		transform: scale(1);
 		transition: transform 0.3s ease-in-out;
 	}
 
 	.cv-git__git-icon:hover {
-		transform: scale(1.2);
+		transform: scale(1.1);
 		transition: transform 0.3s ease-in-out;
+	}
+
+	@media only screen and (min-width: 768px) {
+		.main-page-container {
+			height: 40%;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 30%;
+			flex-flow: row wrap;
+			justify-content: center;
+			gap: 1em;
+			margin: 0;
+		}
+
+		.main-page__image img {
+			height: 100%;
+			width: auto;
+		}
+
+		.main-page__general-info {
+			justify-content: space-around;
+			font-size: var(--body-style);
+		}
+
+		.general-info__cv-git {
+			justify-content: space-around;
+		}
+
+		.cv-git__cv-button {
+			height: 50px;
+			width: 170px;
+		}
+
+		.cv-git__git-icon {
+			width: 50px;
+			height: 50px;
+		}
+	}
+	@media only screen and (min-width: 1200px) {
+		.main-page-container {
+			flex-flow: row nowrap;
+			gap: 1.5em;
+		}
+
+		.main-page__general-info {
+			justify-content: space-between;
+		}
+
+		.general-info__cv-git {
+			justify-content: space-between;
+		}
 	}
 
 </style>
