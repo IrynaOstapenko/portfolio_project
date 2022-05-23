@@ -2,13 +2,13 @@
     <div class="nav-container">
         <div class="nav-container__initials">IO</div>
         <RouterLink :to="{ name: 'home' }" class="nav-container__home-icon"><img src="/images/home-icon.png" alt="home-icon"></RouterLink>
-        <nav class="nav-container__navigation" :style="{'visibility: visible;' : isOpen}">
+        <nav class="nav-container__navigation" :class="{'visible' : isOpen}">
             <RouterLink :to="{ name: 'about'}">About me</RouterLink>
             <RouterLink :to="{ name: 'projects' }">My projects</RouterLink>
             <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
         </nav>
-        <button class="hamburger-button" @click="openMenu()" :class="{'hidden': isOpen}"><img src="/images/hamburger-menu.png" alt="hamburger-menu"></button>
-        <button class="close-button" @click="closeMenu()" :class="{'visible': isOpen}"><img src="/images/close-icon.png" alt="close-icon"></button>
+        <button class="hamburger-button" @click="openMenu()"  :class="{'hidden': isOpen}"><img src="/images/hamburger-menu.png" alt="hamburger-menu"></button>
+        <button class="close-button" @click="closeMenu()" v-show="isOpen"><img src="/images/close-icon.png" alt="close-icon"></button>
     </div>
 </template>
 
@@ -17,10 +17,16 @@
     export default {
         data() {
             return {
-                isOpen: false,
-            
+                isOpen: false            
             }
         },
+
+        // computed: {
+        //     is_mobile() {
+        //         const isMobile = window.matchMedia("only screen and (max-width: 767px)")
+        //         return isMobile.matches ? true : false
+        //     }
+        // },
 
         methods: {
             openMenu() {
@@ -32,7 +38,6 @@
         }
     }
     
-
 </script>
 
 <style>
@@ -51,19 +56,11 @@
 
     .nav-container__initials {
         display: none;
-        /* width: 100%; 
-        height: 10%;
-        padding-top: 3%; 
-        margin-bottom: 30%;
-        background-color: var(--darker-green);
-        text-align: center;
-        font-size: var(--header-style); */
     }
 
     .nav-container__home-icon {
         height: 35px;
         width: 35px;
-        /* margin-bottom: 30%; */
         transform: scale(1);
 		transition: transform 0.3s ease;
     }
@@ -74,7 +71,6 @@
     }
 
     nav {
-        /* display: none; */
         visibility: hidden;
         position: absolute;
         top: 60px;
@@ -99,27 +95,6 @@
         visibility: hidden;
     }
 
-    /* .open-nav {
-        display: block;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--light-green);
-        z-index: 1;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center; 
-        padding-top: 80px;
-        gap: 25px;
-    } */
-
-    /* .closed-nav {
-        display: none;
-    } */
-
     nav a {
         text-decoration: none;
         color: var(--nav-color);
@@ -135,10 +110,6 @@
 
     .nav-container__navigation a.router-link-active {
         text-decoration: underline;
-    }
-
-    .close-button {
-        display: none;
     }
 
     @media only screen and (min-width: 768px) {
@@ -175,11 +146,7 @@
             top: 0;
             width: auto;
             height: auto;
-            /* display: flex;
-            flex-flow: column nowrap; */
             justify-content: center;
-            /* align-items: center;  */
-            /* gap: 25px; */
             padding-top: 0;
         }
 
