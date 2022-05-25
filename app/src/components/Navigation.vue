@@ -21,13 +21,6 @@
             }
         },
 
-        // computed: {
-        //     is_mobile() {
-        //         const isMobile = window.matchMedia("only screen and (max-width: 767px)")
-        //         return isMobile.matches ? true : false
-        //     }
-        // },
-
         methods: {
             openMenu() {
                 this.isOpen = true;
