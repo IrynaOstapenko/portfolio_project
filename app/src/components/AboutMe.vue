@@ -10,8 +10,7 @@
                 <div class="skill-title">{{ skill.caption }}</div>
             </div>
         </div>
-    </div>
-    
+    </div>    
 </template>
 
 <script>
@@ -34,7 +33,7 @@
                 skills: []
             }
         },
-
+        //Fetching data from database
         async created() {
             await this.sanityFetch(query, {
                 type: 'about'
@@ -42,7 +41,6 @@
 
             this.generalInfo = this.result[0].aboutMe;
             this.skills = this.result[0].skills;
-            console.log(this.skills);
         }
     }
 </script>
@@ -86,7 +84,7 @@
             font-size: var(--body-style);
         }
 
-         .skills-container {
+        .skills-container {
             margin-right: 20px;
             margin-top: 20px;
         }

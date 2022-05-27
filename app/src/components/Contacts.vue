@@ -50,7 +50,7 @@
                 addedMessage: ''
             }
         },
-
+        //Fetching data from database
         async created() {
             await this.sanityFetch(query, {
                 type: 'about'
@@ -61,6 +61,7 @@
         },
 
         methods: {
+            //Function that sends data to database
             createMessage() {
                 sanity.create({
                     _type: 'message',
@@ -183,7 +184,7 @@
         .contacts-container__contacts > div {
             width: 45%;
             height: 70px;
-             gap: 5px;
+            gap: 5px;
         }
 
         .contacts-container__contacts {

@@ -3,4 +3,5 @@ body {
 	color: var(--foreground);
 	font-size: var(--body-style);
 	font-family: var(--font-family);
+	overflow: overlay;
 }

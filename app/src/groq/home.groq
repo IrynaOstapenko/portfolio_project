@@ -11,9 +11,9 @@
             }
         },
         mainImage {
-                asset -> {
-                    url
-                }
+            asset -> {
+                url
+            }
         },
         skills[] {
             asset -> {url},

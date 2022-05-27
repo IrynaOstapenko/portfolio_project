@@ -15,8 +15,7 @@
                 <a :href="project.netlifyLink" aria-label="link-to-netlify"><img src="/images/netlify-icon.png" alt="netlify-icon"></a>
             </div>            
         </div>
-    </div>
-    
+    </div>    
 </template>
 
 <script>    
@@ -37,17 +36,14 @@
                 projects: []
             }           
         },
-
+        //Fetch data from database
         async created() {
             await this.sanityFetch(query, {
                 type: 'project'
             })
             this.projects = this.result;
-            console.log(this.projects);
         }
-    }
-
-    
+    }    
 </script>
 
 <style>
@@ -80,7 +76,6 @@
     .image-container__overlay {
         position: absolute;
         bottom: 0;
-        background: rgb(0, 0, 0);
         background: rgba(0, 0, 0, 0.8); 
         width: 100%;
         opacity: 0;

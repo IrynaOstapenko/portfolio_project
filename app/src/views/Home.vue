@@ -7,7 +7,7 @@
 			<div class="general-info__about-me">{{ intro }}</div>
 			<div class="general-info__cv-git">
 				<a :href="cvLink"><button class="cv-git__cv-button">CV</button></a>
-				<div class="cv-git__git-icon"><a :href="gitHubLinkMain"><img src="/images/github-icon.png" alt=""></a></div>
+				<div class="cv-git__git-icon"><a :href="gitHubLinkMain"><img src="/images/github-icon.png" alt="github-icon"></a></div>
 			</div>
 		</div>
 	</div>

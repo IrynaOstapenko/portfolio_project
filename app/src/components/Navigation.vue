@@ -22,9 +22,11 @@
         },
 
         methods: {
+            //Function to open hamburger menu
             openMenu() {
                 this.isOpen = true;
             },
+            //Function to close hamburger menu
             closeMenu() {
                 this.isOpen = false;
             }
@@ -44,7 +46,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 15px;
     }
 
     .nav-container__initials {

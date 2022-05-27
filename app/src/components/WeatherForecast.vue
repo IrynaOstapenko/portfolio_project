@@ -1,7 +1,9 @@
 <template>
+    <!-- Component used to demonstrate understanding of API -->
     <div class="weather-container">
         <div class="error-message" v-if="error">{{ error }}</div>
         <div v-if="!error" class="weather-container__image">
+            <!-- Determine use of image based on the level of precipitation -->
             <img v-if="this.averagePrecipitation === 0" src="/images/sun.png" alt="sun" />
             <img v-else-if="this.averagePrecipitation > 0 && this.averagePrecipitation < 0.03" src="/images/sun-behind-large-cloud.png" alt="sun-behind-cloud" />
             <img v-else-if="this.averagePrecipitation >= 0.03 && this.averagePrecipitation <= 1.05" src="/images/sun-behind-rain-cloud.png" alt="sun-behind-rain-cloud" />
@@ -35,7 +37,6 @@
                 try {
                     await this.handleResponse(response);
                 } catch (error) {
-                    console.log(error);
                     this.error = error.message;
                 }
 		    },
@@ -48,13 +49,11 @@
                     //Calculating average temperature
                     const temperatureArray = this.weatherData.hourly.temperature_2m;
                     this.averageTemperature = Math.round(temperatureArray.reduce((a, b) => a + b, 0) / temperatureArray.length);
-                    console.log(this.averageTemperature);
 
                     //Calculating average precipitation
                     const precipitationArray = this.weatherData.hourly.precipitation;
                     const averagePrecipitationUnrounded = precipitationArray.reduce((a, b) => a + b, 0) / precipitationArray.length;
                     this.averagePrecipitation = (Math.round(averagePrecipitationUnrounded * 100)/100).toFixed(2);
-                    console.log(this.averagePrecipitation);
                     return true;
                 
                 } else {
@@ -72,7 +71,6 @@
 		    }
         }        
     }
-
 </script>
 
 <style>
