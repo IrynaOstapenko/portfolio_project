@@ -12,7 +12,6 @@
     </div>
 </template>
 
-
 <script>
     export default {
         data() {
@@ -31,8 +30,7 @@
                 this.isOpen = false;
             }
         }
-    }
-    
+    }   
 </script>
 
 <style>
@@ -153,5 +151,4 @@
             display: none;
         }
     }
-
 </style>

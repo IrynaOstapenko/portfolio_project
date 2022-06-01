@@ -6,7 +6,7 @@
 		<div class="main-page__general-info">
 			<div class="general-info__about-me">{{ intro }}</div>
 			<div class="general-info__cv-git">
-				<a :href="cvLink"><button class="cv-git__cv-button">CV</button></a>
+				<a :href="cvLink"><button class="cv-git__cv-button" aria-label="go to cv">CV</button></a>
 				<div class="cv-git__git-icon"><a :href="gitHubLinkMain"><img src="/images/github-icon.png" alt="github-icon"></a></div>
 			</div>
 		</div>

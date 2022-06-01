@@ -15,13 +15,13 @@
         <h3>Contact Form</h3>
         <div class="contacts-container__form">
             <form>
-                <input type="text" id="name" name="name" placeholder="Name" v-model="addedName" required>
+                <input type="text" aria-label="name" id="name" name="name" placeholder="Name" v-model="addedName" required>
 
-                <input type="email" id="email" name="email" placeholder="Email" v-model="addedEmail" required>
+                <input type="email" aria-label="email" id="email" name="email" placeholder="Email" v-model="addedEmail" required>
 
-                <input type="textarea" id="message" name="message" placeholder="Your message" v-model="addedMessage" required>
+                <input type="textarea" aria-label="your message" id="message" name="message" placeholder="Your message" v-model="addedMessage" required>
 
-                <input type="submit" value="Send" @click="createMessage">
+                <input type="submit" aria-label="send message" value="Send" @click="createMessage">
             </form>                
         </div>
     </div>
@@ -136,17 +136,17 @@
     }
 
     input {
-         width: 100%;
-         height: 50px;
-         margin-bottom: 10px;
-         background-color: white;
-         padding-left: 5px;
-         border-radius: 10px;
-         font-size: 0.7em;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        background-color: white;
+        padding-left: 5px;
+        border-radius: 10px;
+        font-size: 0.7em;
     }
 
     input:hover {
-         box-shadow: 2px 2px 5px #3A3A3A;
+        box-shadow: 2px 2px 5px #3A3A3A;
     }
 
     input[type=textarea] {
@@ -209,5 +209,4 @@
             font-size: var(--body-style);
         }        
     }
-
 </style>
